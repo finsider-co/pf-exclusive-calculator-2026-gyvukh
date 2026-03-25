@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>PF</title> <!-- App 名稱更改為 PF -->
+    <title>PF</title>
     
     <!-- PWA 設定 -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="PF"> <!-- 主畫面名稱更改為 PF -->
+    <meta name="apple-mobile-web-app-title" content="PF">
     
-    <!-- 內建 App 圖標 (Base64 SVG) - 金色 PF Logo -->
+    <!-- 內建 App 圖標 (Base64 SVG) -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxZTI5M2IiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwZjE3MmEiLz48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0iZ29sZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2JmOTUzZiIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZmNmNmJhIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjYWE3NzFjIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIGZpbGw9InVybCgjZykiIHJ4PSIxMjgiLz48dGV4dCB4PSI1MCUiIHk9IjUyJSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZvbnQtc2l6ZT0iMjQwIiBmaWxsPSJ1cmwoI2dvbGQpIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjM1ZW0iPlBGPC90ZXh0Pjwvc3ZnPg==">
     <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxZTI5M2IiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwZjE3MmEiLz48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0iZ29sZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2JmOTUzZiIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZmNmNmJhIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjYWE3NzFjIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIGZpbGw9InVybCgjZykiIHJ4PSIxMjgiLz48dGV4dCB4PSI1MCUiIHk9IjUyJSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZvbnQtc2l6ZT0iMjQwIiBmaWxsPSJ1cmwoI2dvbGQpIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjM1ZW0iPlBGPC90ZXh0Pjwvc3ZnPg==">
 
@@ -23,7 +23,7 @@
             background-color: #0a0c10;
             color: #e2e8f0;
             -webkit-font-smoothing: antialiased;
-            padding-bottom: env(safe-area-inset-bottom); /* 適配 iPhone 底部橫條 */
+            padding-bottom: env(safe-area-inset-bottom);
         }
         .glass-card {
             background: rgba(30, 41, 59, 0.5);
@@ -57,29 +57,30 @@
             color: #fb7185;
         }
         .accordion-content {
-            transition: max-height 0.3s ease-out;
+            transition: max-height 0.4s ease-out;
             max-height: 0;
             overflow: hidden;
         }
         .accordion-content.active {
-            max-height: 500px;
+            max-height: 1200px;
         }
-        /* 自定義滾動條 */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0a0c10;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1e293b;
-            border-radius: 10px;
-        }
-        /* Radio Button Style */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0c10; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
         .currency-radio:checked + label {
             background-color: #b38728;
             color: white;
             border-color: #b38728;
+        }
+        .matrix-cell {
+            transition: all 0.2s;
+        }
+        .matrix-cell:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 10;
+            position: relative;
         }
     </style>
 </head>
@@ -88,15 +89,22 @@
         <!-- 標題區域 -->
         <header class="mb-8 flex flex-col md:flex-row justify-between items-end gap-4">
             <div>
-                <h1 class="text-3xl md:text-4xl font-bold gold-gradient-text tracking-tight mb-2">Premium Financing</h1>
-                <p class="text-slate-400 text-sm">Wealth Management & Financing Simulation Tool: Wealthicon Horizon</p>
+                <h1 class="text-3xl md:text-4xl font-bold gold-gradient-text tracking-tight mb-2" data-i18n="appTitle">Premium Financing</h1>
+                <p class="text-slate-400 text-sm" data-i18n="appSubtitle">Wealth Management & Financing Simulation Tool: Wealthicon Horizon</p>
             </div>
             <div class="flex flex-col items-end gap-2">
+                <!-- 語言切換器 -->
+                <select id="langSwitcher" onchange="setLanguage(this.value)" class="bg-slate-800 text-xs text-slate-300 border border-slate-600 rounded px-2 py-1 outline-none mb-1">
+                    <option value="zh-TW">繁體中文</option>
+                    <option value="zh-CN">简体中文</option>
+                    <option value="en">English</option>
+                </select>
+
                 <div class="text-right">
-                    <div class="text-xs text-slate-500 uppercase tracking-widest mb-1">Display Currency</div>
+                    <div class="text-xs text-slate-500 uppercase tracking-widest mb-1" data-i18n="displayCurrency">Display Currency</div>
                     <div class="text-xl font-semibold text-white" id="headerCurrencyDisplay">USD <span class="text-slate-500 text-sm font-normal">/ 美元</span></div>
                 </div>
-                <button onclick="resetData()" class="text-xs text-slate-500 hover:text-amber-500 underline transition-colors">重置所有設定</button>
+                <button onclick="resetData()" class="text-xs text-slate-500 hover:text-amber-500 underline transition-colors" data-i18n="resetBtn">重置所有設定</button>
             </div>
         </header>
 
@@ -104,25 +112,25 @@
             <!-- 左側輸入面板 -->
             <aside class="lg:col-span-1 space-y-6">
                 
-                <!-- 貨幣設定 (新功能) -->
+                <!-- 貨幣設定 -->
                 <div class="glass-card p-5 border-amber-500/20 bg-amber-500/5">
                     <h2 class="text-sm font-semibold mb-3 flex items-center gap-2 text-amber-100">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                        貨幣顯示設定
+                        <span data-i18n="currencyTitle">貨幣顯示設定</span>
                     </h2>
                     <div class="flex gap-2 mb-3">
                         <div class="flex-1">
                             <input type="radio" name="currency" id="currUSD" value="USD" class="hidden currency-radio" checked onchange="updateCurrencyMode()">
-                            <label for="currUSD" class="block text-center py-2 rounded-lg border border-slate-600 text-slate-400 text-xs cursor-pointer transition-all hover:border-slate-500">USD 美元</label>
+                            <label for="currUSD" class="block text-center py-2 rounded-lg border border-slate-600 text-slate-400 text-xs cursor-pointer transition-all hover:border-slate-500" data-i18n="usdLabel">USD 美元</label>
                         </div>
                         <div class="flex-1">
                             <input type="radio" name="currency" id="currHKD" value="HKD" class="hidden currency-radio" onchange="updateCurrencyMode()">
-                            <label for="currHKD" class="block text-center py-2 rounded-lg border border-slate-600 text-slate-400 text-xs cursor-pointer transition-all hover:border-slate-500">HKD 港幣</label>
+                            <label for="currHKD" class="block text-center py-2 rounded-lg border border-slate-600 text-slate-400 text-xs cursor-pointer transition-all hover:border-slate-500" data-i18n="hkdLabel">HKD 港幣</label>
                         </div>
                     </div>
                     <div>
-                        <label class="block text-xs text-slate-400 mb-1 ml-1">USD/HKD 匯率</label>
-                        <input type="number" id="exchangeRate" value="7.8" step="0.01" class="input-field w-full rounded-lg px-3 py-2 text-sm text-right">
+                        <label class="block text-xs text-slate-400 mb-1 ml-1"><span data-i18n="exchangeRate">USD/HKD 匯率</span> <span class="text-[9px] text-slate-500">(市場/顯示用)</span></label>
+                        <input type="number" id="exchangeRate" value="7.8" step="0.001" class="input-field w-full rounded-lg px-3 py-2 text-sm text-right">
                     </div>
                 </div>
 
@@ -130,34 +138,41 @@
                 <div class="glass-card p-5">
                     <h2 class="text-lg font-semibold mb-4 flex items-center gap-2 text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-500"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-                        方案參數 (USD)
+                        <span data-i18n="paramsTitle">方案參數 (USD)</span>
                     </h2>
                     
                     <div class="space-y-3">
                         <div>
-                            <label class="block text-xs text-slate-400 mb-1 ml-1">基本計劃保費 (USD)</label>
+                            <label class="block text-xs text-slate-400 mb-1 ml-1" data-i18n="basicPremium">基本計劃保費 (USD)</label>
                             <input type="number" id="basicPremium" value="400000" step="10000" class="input-field w-full rounded-lg px-3 py-2 text-sm">
                         </div>
                         <div>
-                            <label class="block text-xs text-slate-400 mb-1 ml-1">首日退保價值 (80% 固定)</label>
+                            <label class="block text-xs text-slate-400 mb-1 ml-1" data-i18n="day1SV">首日退保價值 (80% 固定)</label>
                             <input type="number" id="day1SV" value="320000" class="input-field w-full rounded-lg px-3 py-2 text-sm bg-slate-900/50 text-slate-500 cursor-not-allowed" readonly>
                         </div>
                         <div class="grid grid-cols-2 gap-3">
                             <div>
-                                <label class="block text-xs text-slate-400 mb-1 ml-1">保費折扣 (%)</label>
+                                <label class="block text-xs text-slate-400 mb-1 ml-1" data-i18n="premiumDiscount">保費折扣 (%)</label>
                                 <input type="number" id="premiumDiscount" value="5" step="0.1" class="input-field w-full rounded-lg px-3 py-2 text-sm">
                             </div>
                             <div>
-                                <label class="block text-xs text-slate-400 mb-1 ml-1">實現率 (%)</label>
+                                <label class="block text-xs text-slate-400 mb-1 ml-1"><span data-i18n="fulfillmentRatio">實現率 (%)</span></label>
                                 <input type="number" id="fulfillmentRatio" value="100" step="1" class="input-field w-full rounded-lg px-3 py-2 text-sm">
                             </div>
                         </div>
                         <div>
-                            <label class="block text-xs text-slate-400 mb-1 ml-1">融資成數 LTV (%)</label>
+                            <label class="block text-xs text-slate-400 mb-1 ml-1" data-i18n="ltvRatio">融資成數 LTV (%)</label>
                             <input type="number" id="ltvRatio" value="90" step="1" class="input-field w-full rounded-lg px-3 py-2 text-sm">
                         </div>
+                        
+                        <!-- 新增：銀行借貸匯率 -->
                         <div>
-                            <label class="block text-xs text-slate-400 mb-1 ml-1">基準融資利率 (%)</label>
+                            <label class="block text-xs text-slate-400 mb-1 ml-1" data-i18n="bankLoanRate">銀行借貸匯率 (USD兌HKD)</label>
+                            <input type="number" id="bankLoanRate" value="7.8" step="0.001" class="input-field w-full rounded-lg px-3 py-2 text-sm border-blue-500/30">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs text-slate-400 mb-1 ml-1" data-i18n="baseFinancingRate">基準融資利率 (%)</label>
                             <input type="number" id="baseFinancingRate" value="3.2" step="0.01" class="input-field w-full rounded-lg px-3 py-2 text-sm border-amber-500/30">
                         </div>
                     </div>
@@ -166,7 +181,7 @@
                 <!-- 進階設定：年度利率 -->
                 <div class="glass-card overflow-hidden">
                     <button id="toggleAdvanced" class="w-full px-5 py-3 flex justify-between items-center bg-slate-800/50 hover:bg-slate-800 transition-colors">
-                        <span class="text-xs font-semibold uppercase tracking-wider text-amber-500">進階設定：每年利率調整</span>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-amber-500" data-i18n="advancedSettings">進階設定：每年利率調整</span>
                         <svg id="arrowIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400 transform transition-transform duration-300"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
                     <div id="advancedContent" class="accordion-content bg-slate-900/30">
@@ -182,15 +197,15 @@
                 <!-- 核心指標 -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div class="glass-card p-5 border-l-4 border-amber-500 flex flex-col justify-between">
-                        <div class="text-xs text-slate-400 uppercase">Financing Amount 融資金額</div>
+                        <div class="text-xs text-slate-400 uppercase" data-i18n="cardFinancing">Financing Amount 融資金額</div>
                         <div class="text-2xl font-bold text-white mt-1" id="displayFinancing">0</div>
                     </div>
                     <div class="glass-card p-5 border-l-4 border-blue-500 flex flex-col justify-between">
-                        <div class="text-xs text-slate-400 uppercase">Initial Outlay 初始投入</div>
+                        <div class="text-xs text-slate-400 uppercase" data-i18n="cardOutlay">Initial Outlay 初始投入</div>
                         <div class="text-2xl font-bold text-white mt-1" id="displayOutlay">0</div>
                     </div>
                     <div class="glass-card p-5 border-l-4 border-teal-500 flex flex-col justify-between">
-                        <div class="text-xs text-slate-400 uppercase">Year 10 Net Profit 十年淨利</div>
+                        <div class="text-xs text-slate-400 uppercase" data-i18n="cardYear10Profit">Year 10 Net Profit 十年淨利</div>
                         <div class="text-2xl font-bold highlight-text mt-1" id="displayYear10Profit">0</div>
                     </div>
                 </div>
@@ -206,15 +221,15 @@
                         <table class="w-full text-left border-collapse min-w-[900px]">
                             <thead>
                                 <tr class="bg-slate-800/50 text-slate-400 text-xs uppercase tracking-wider">
-                                    <th class="px-3 py-3 font-semibold sticky left-0 bg-[#161b22] z-10 border-r border-slate-700">年度</th>
-                                    <th class="px-3 py-3 font-semibold text-right text-teal-500/80">融資利率</th>
-                                    <th class="px-3 py-3 font-semibold text-right">利息成本<br><span class="text-[10px] text-slate-500 normal-case">(年 / 月)</span></th>
-                                    <th class="px-3 py-3 font-semibold text-right">總退保價值</th>
-                                    <th class="px-3 py-3 font-semibold text-right border-l border-slate-700/50">IRR<br><span class="text-[10px] text-slate-500">(無融資)</span></th>
-                                    <th class="px-3 py-3 font-semibold text-right text-amber-500">PFIRR<br><span class="text-[10px] text-amber-500/70">(有融資)</span></th>
-                                    <th class="px-3 py-3 font-semibold text-right text-amber-300">可提取金額</th>
-                                    <th class="px-3 py-3 font-semibold text-right">淨利潤</th>
-                                    <th class="px-3 py-3 font-semibold text-right">盈利率 %</th>
+                                    <th class="px-3 py-3 font-semibold sticky left-0 bg-[#161b22] z-10 border-r border-slate-700" data-i18n="colYear">年度</th>
+                                    <th class="px-3 py-3 font-semibold text-right text-teal-500/80" data-i18n="colRate">融資利率</th>
+                                    <th class="px-3 py-3 font-semibold text-right" data-i18n="colInterest">利息成本<br><span class="text-[10px] text-slate-500 normal-case">(年 / 月)</span></th>
+                                    <th class="px-3 py-3 font-semibold text-right" data-i18n="colTotalSV">總退保價值</th>
+                                    <th class="px-3 py-3 font-semibold text-right border-l border-slate-700/50" data-i18n="colTirrNoPF">IRR<br><span class="text-[10px] text-slate-500">(無融資)</span></th>
+                                    <th class="px-3 py-3 font-semibold text-right text-amber-500" data-i18n="colTirrPF">PFIRR<br><span class="text-[10px] text-amber-500/70">(有融資)</span></th>
+                                    <th class="px-3 py-3 font-semibold text-right text-amber-300" data-i18n="colGrossReturn">可提取金額</th>
+                                    <th class="px-3 py-3 font-semibold text-right" data-i18n="colNetProfit">淨利潤</th>
+                                    <th class="px-3 py-3 font-semibold text-right" data-i18n="colROI">盈利率 %</th>
                                 </tr>
                             </thead>
                             <tbody id="dataTableBody" class="text-sm">
@@ -223,97 +238,277 @@
                         </table>
                     </div>
                 </div>
+
+                <!-- 壓力測試矩陣 (隱藏式) -->
+                <div class="glass-card overflow-hidden mt-6 border-slate-700/60">
+                    <button id="toggleStressTest" class="w-full px-5 py-4 flex justify-between items-center bg-slate-800/50 hover:bg-slate-800 transition-colors">
+                        <div class="flex items-center gap-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-500"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                            <div class="text-left">
+                                <div class="text-sm font-bold uppercase tracking-wider text-amber-500" data-i18n="stressTestTitle">壓力測試矩陣</div>
+                                <div class="text-[10px] text-slate-400 mt-0.5" data-i18n="stressTestDesc">分析不同貸款利率與實現率的 PFIRR 變化</div>
+                            </div>
+                        </div>
+                        <svg id="stressArrowIcon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400 transform transition-transform duration-300"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div id="stressTestContent" class="accordion-content bg-[#0f141e]">
+                        <div class="p-5 md:p-6 overflow-x-auto">
+                            <!-- 年度選擇器 -->
+                            <div class="mb-4 flex items-center gap-3">
+                                <label for="stressTestYear" class="text-xs text-slate-400 font-semibold" data-i18n="stressTestYearLabel">目標分析年度 (5-10)：</label>
+                                <input type="number" id="stressTestYear" value="10" min="5" max="10" step="1" onchange="calculate()" class="input-field w-20 rounded-lg px-3 py-1.5 text-sm text-center border-amber-500/30">
+                            </div>
+
+                            <!-- Matrix 容器 -->
+                            <div id="stressTestMatrixBody" class="pb-2">
+                                <!-- JS 動態生成 -->
+                            </div>
+                            
+                            <div class="mt-6 flex items-start gap-2 bg-slate-800/40 p-4 rounded-lg border border-slate-700/50">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400 shrink-0 mt-0.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                                <div id="stressTestNoteText" class="text-[11px] text-slate-400 leading-relaxed">
+                                    <!-- 動態生成 -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </main>
         </div>
-
     </div>
 
     <script>
-        const inputs = ['basicPremium', 'premiumDiscount', 'ltvRatio', 'baseFinancingRate', 'fulfillmentRatio', 'exchangeRate'];
+        // --- 翻譯字典 (i18n) ---
+        const i18n = {
+            'zh-TW': {
+                appTitle: "Premium Financing",
+                appSubtitle: "Wealth Management & Financing Simulation Tool: Wealthicon Horizon",
+                displayCurrency: "Display Currency",
+                resetBtn: "重置所有設定",
+                currNameUsd: "美元",
+                currNameHkd: "港幣",
+                currencyTitle: "貨幣顯示設定",
+                usdLabel: "USD 美元",
+                hkdLabel: "HKD 港幣",
+                exchangeRate: "USD/HKD 匯率",
+                bankLoanRate: "銀行借貸匯率 (USD兌HKD)",
+                paramsTitle: "方案參數 (USD)",
+                basicPremium: "基本計劃保費 (USD)",
+                day1SV: "首日退保價值 (80% 固定)",
+                premiumDiscount: "保費折扣 (%)",
+                fulfillmentRatio: "實現率 (%)",
+                ltvRatio: "融資成數 LTV (%)",
+                baseFinancingRate: "基準融資利率 (%)",
+                advancedSettings: "進階設定：每年利率調整",
+                cardFinancing: "Financing Amount 融資金額",
+                cardOutlay: "Initial Outlay 初始投入",
+                cardYear10Profit: "Year 10 Net Profit 十年淨利",
+                colYear: "年度",
+                colRate: "融資利率",
+                colInterest: "利息成本<br><span class='text-[10px] text-slate-500 normal-case'>(年 / 月)</span>",
+                colTotalSV: "總退保價值",
+                colTirrNoPF: "IRR<br><span class='text-[10px] text-slate-500'>(無融資)</span>",
+                colTirrPF: "PFIRR<br><span class='text-[10px] text-amber-500/70'>(有融資)</span>",
+                colGrossReturn: "可提取金額",
+                colNetProfit: "淨利潤",
+                colROI: "盈利率 %",
+                mo: "/ 月",
+                resetPrompt: "確定要重置所有設定為預設值嗎？",
+                chartNetProfit: "淨利潤",
+                chartGrossReturn: "可提取金額",
+                yLabel: "Y",
+                stressTestTitle: "壓力測試矩陣",
+                stressTestDesc: "分析不同貸款利率與實現率的 PFIRR 變化",
+                stressTestYearLabel: "目標分析年度 (5-10)：",
+                fulfillmentRowLabel: "實現率 \\ 貸款利率",
+                stressTestNote: "* 矩陣數據顯示第 {year} 年的年度化內部回報率 (PFIRR)。過往紅利實現率不代表未來表現，融資利率波動將直接影響最終回報。"
+            },
+            'zh-CN': {
+                appTitle: "Premium Financing (保费融资)",
+                appSubtitle: "Wealth Management & Financing Simulation Tool: Wealthicon Horizon",
+                displayCurrency: "显示货币 (Currency)",
+                resetBtn: "重置所有设置",
+                currNameUsd: "美元",
+                currNameHkd: "港币",
+                currencyTitle: "货币显示设置",
+                usdLabel: "USD 美元",
+                hkdLabel: "HKD 港币",
+                exchangeRate: "USD/HKD 汇率",
+                bankLoanRate: "银行借贷汇率 (USD兑HKD)",
+                paramsTitle: "方案参数 (USD)",
+                basicPremium: "基本计划保费 (USD)",
+                day1SV: "首日退保价值 (80% 固定)",
+                premiumDiscount: "保费折扣 (%)",
+                fulfillmentRatio: "实现率 (%)",
+                ltvRatio: "融资成数 LTV (%)",
+                baseFinancingRate: "基准融资利率 (%)",
+                advancedSettings: "高级设置：每年利率调整",
+                cardFinancing: "Financing Amount 融资金额",
+                cardOutlay: "Initial Outlay 初始投入",
+                cardYear10Profit: "Year 10 Net Profit 十年净利",
+                colYear: "年度",
+                colRate: "融资利率",
+                colInterest: "利息成本<br><span class='text-[10px] text-slate-500 normal-case'>(年 / 月)</span>",
+                colTotalSV: "总退保价值",
+                colTirrNoPF: "IRR<br><span class='text-[10px] text-slate-500'>(无融资)</span>",
+                colTirrPF: "PFIRR<br><span class='text-[10px] text-amber-500/70'>(有融资)</span>",
+                colGrossReturn: "可提取金额",
+                colNetProfit: "净利润",
+                colROI: "盈利率 %",
+                mo: "/ 月",
+                resetPrompt: "确定要重置所有设置吗？",
+                chartNetProfit: "净利润",
+                chartGrossReturn: "可提取金额",
+                yLabel: "Y",
+                stressTestTitle: "压力测试矩阵",
+                stressTestDesc: "分析不同贷款利率与实现率的 PFIRR 变化",
+                stressTestYearLabel: "目标分析年度 (5-10)：",
+                fulfillmentRowLabel: "实现率 \\ 贷款利率",
+                stressTestNote: "* 矩阵数据显示第 {year} 年的年度化内部回报率 (PFIRR)。过往红利实现率不代表未来表现，融资利率波动将直接影响最终回报。"
+            },
+            'en': {
+                appTitle: "Premium Financing",
+                appSubtitle: "Wealth Management & Financing Simulation Tool: Wealthicon Horizon",
+                displayCurrency: "Display Currency",
+                resetBtn: "Reset All Settings",
+                currNameUsd: "US Dollar",
+                currNameHkd: "HK Dollar",
+                currencyTitle: "Currency Settings",
+                usdLabel: "USD",
+                hkdLabel: "HKD",
+                exchangeRate: "USD/HKD Exchange Rate",
+                bankLoanRate: "Bank Loan Rate (USD to HKD)",
+                paramsTitle: "Plan Parameters (USD)",
+                basicPremium: "Basic Premium (USD)",
+                day1SV: "Day 1 Surrender Value (80% Fixed)",
+                premiumDiscount: "Premium Discount (%)",
+                fulfillmentRatio: "Fulfillment Ratio (%)",
+                ltvRatio: "LTV Ratio (%)",
+                baseFinancingRate: "Base Financing Rate (%)",
+                advancedSettings: "Advanced Settings: Yearly Rate Adjustments",
+                cardFinancing: "Financing Amount",
+                cardOutlay: "Initial Outlay",
+                cardYear10Profit: "Year 10 Net Profit",
+                colYear: "Year",
+                colRate: "Fin. Rate",
+                colInterest: "Interest Cost<br><span class='text-[10px] text-slate-500 normal-case'>(Yr / Mo)</span>",
+                colTotalSV: "Total Surrender Value",
+                colTirrNoPF: "IRR<br><span class='text-[10px] text-slate-500'>(w/o PF)</span>",
+                colTirrPF: "PFIRR<br><span class='text-[10px] text-amber-500/70'>(with PF)</span>",
+                colGrossReturn: "Gross Return",
+                colNetProfit: "Net Profit",
+                colROI: "ROI %",
+                mo: "/ mo",
+                resetPrompt: "Are you sure you want to reset all settings to their default values?",
+                chartNetProfit: "Net Profit",
+                chartGrossReturn: "Gross Return",
+                yLabel: "Yr ",
+                stressTestTitle: "Stress Test Matrix",
+                stressTestDesc: "Analyze PFIRR variations across loan rates & fulfillment ratios",
+                stressTestYearLabel: "Target Year (5-10):",
+                fulfillmentRowLabel: "Fulfillment \\ Loan Rate",
+                stressTestNote: "* The matrix displays the {year}-year annualized internal rate of return (PFIRR). Past fulfillment ratios are not indicative of future performance. Financing rate fluctuations directly impact final returns."
+            }
+        };
+
+        const inputs = ['basicPremium', 'premiumDiscount', 'ltvRatio', 'bankLoanRate', 'baseFinancingRate', 'fulfillmentRatio', 'exchangeRate', 'stressTestYear'];
         let wealthChart = null;
         let yearlyRates = new Array(11).fill(3.2); 
-        let currentCurrency = 'USD'; // 'USD' or 'HKD'
+        let currentCurrency = 'USD'; 
+        let currentLang = 'zh-TW';
 
         // 產品真實數據比率表 (SV / Basic Premium)
-        const svRatios = [
-            0, 0.8000, 0.8380, 0.95722, 1.03467, 1.18935, 1.248255, 1.312395, 1.391765, 1.52237, 1.651995
+        const guaranteedRatios = [
+            0, 456000/570000, 461700/570000, 461700/570000, 461700/570000, 
+            461700/570000, 462270/570000, 462840/570000, 463410/570000, 464550/570000, 464994/570000
+        ];
+        const nonGuaranteedRatios = [
+            0, 0, 15960/570000, 83917/570000, 128064/570000, 
+            216230/570000, 249237/570000, 285225/570000, 329897/570000, 403202/570000, 476643/570000
         ];
 
+        // --- 多語言處理 ---
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.getElementById('langSwitcher').value = lang;
+            applyTranslations();
+            updateCurrencyMode(); 
+            
+            document.querySelectorAll('.yearly-rate-label').forEach((el, index) => {
+                el.innerText = `${i18n[currentLang].yLabel}${index + 1}`;
+            });
+        }
+
+        function applyTranslations() {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18n[currentLang] && i18n[currentLang][key]) {
+                    el.innerHTML = i18n[currentLang][key];
+                }
+            });
+        }
+
         function getCurrencyRate() {
-            if (currentCurrency === 'HKD') {
-                return parseFloat(document.getElementById('exchangeRate').value) || 7.8;
-            }
-            return 1;
+            return currentCurrency === 'HKD' ? (parseFloat(document.getElementById('exchangeRate').value) || 7.8) : 1;
         }
 
         function formatCurrency(value) {
             const rate = getCurrencyRate();
             const convertedValue = value * rate;
             const currencyCode = currentCurrency === 'HKD' ? 'HKD' : 'USD';
-            
-            return new Intl.NumberFormat('en-US', { 
-                style: 'currency', 
-                currency: currencyCode, 
-                minimumFractionDigits: 0, 
-                maximumFractionDigits: 0 
-            }).format(convertedValue);
+            return new Intl.NumberFormat('en-US', { style: 'currency', currency: currencyCode, minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(convertedValue);
         }
 
         function formatPercent(value) {
             return (value * 100).toFixed(2) + '%';
         }
 
-        function calculateIRR(cashFlows, guess = 0.1) {
+        function calculateIRR(cashFlows) {
             if (cashFlows.length === 2) {
                 if (cashFlows[0] === 0) return 0;
                 return (cashFlows[1] / -cashFlows[0]) - 1;
             }
 
-            const maxIter = 1000;
-            const tol = 0.000001;
-            let rate = guess;
+            let hasPositive = false;
+            for (let i = 0; i < cashFlows.length; i++) {
+                if (cashFlows[i] > 0) { hasPositive = true; break; }
+            }
+            if (!hasPositive) return -0.9999; 
 
-            for (let i = 0; i < maxIter; i++) {
+            let minRate = -0.9999; 
+            let maxRate = 10.0;    
+            let tol = 0.000001;
+            let rate = 0;
+
+            for (let i = 0; i < 100; i++) {
+                rate = (minRate + maxRate) / 2;
                 let npv = 0;
-                let dNpv = 0;
-                
                 for (let t = 0; t < cashFlows.length; t++) {
                     npv += cashFlows[t] / Math.pow(1 + rate, t);
-                    dNpv -= t * cashFlows[t] / Math.pow(1 + rate, t + 1);
                 }
-
-                if (Math.abs(dNpv) < tol) break; 
-                
-                let newRate = rate - npv / dNpv;
-                if (newRate <= -1) newRate = -0.9999; 
-
-                if (Math.abs(newRate - rate) < tol) return newRate;
-                rate = newRate;
+                if (Math.abs(npv) < tol) break; 
+                if (npv > 0) minRate = rate;
+                else maxRate = rate;
             }
             return rate;
         }
 
         function updateCurrencyMode() {
-            const usdRadio = document.getElementById('currUSD');
             const hkdRadio = document.getElementById('currHKD');
-            
             if (hkdRadio.checked) {
                 currentCurrency = 'HKD';
-                document.getElementById('headerCurrencyDisplay').innerHTML = 'HKD <span class="text-slate-500 text-sm font-normal">/ 港幣</span>';
+                document.getElementById('headerCurrencyDisplay').innerHTML = `HKD <span class="text-slate-500 text-sm font-normal">/ ${i18n[currentLang].currNameHkd}</span>`;
             } else {
                 currentCurrency = 'USD';
-                document.getElementById('headerCurrencyDisplay').innerHTML = 'USD <span class="text-slate-500 text-sm font-normal">/ 美元</span>';
+                document.getElementById('headerCurrencyDisplay').innerHTML = `USD <span class="text-slate-500 text-sm font-normal">/ ${i18n[currentLang].currNameUsd}</span>`;
             }
             calculate();
         }
 
         // --- Local Storage 功能 ---
         function saveState() {
-            const state = {
-                inputs: {},
-                yearlyRates: yearlyRates,
-                currency: currentCurrency
-            };
+            const state = { inputs: {}, yearlyRates: yearlyRates, currency: currentCurrency, lang: currentLang };
             inputs.forEach(id => {
                 const el = document.getElementById(id);
                 if(el) state.inputs[id] = el.value;
@@ -332,21 +527,19 @@
                             if (el && state.inputs[id] !== undefined) el.value = state.inputs[id];
                         });
                     }
-                    if (state.yearlyRates) {
-                        yearlyRates = state.yearlyRates;
-                    }
+                    if (state.yearlyRates) yearlyRates = state.yearlyRates;
+                    if (state.lang) currentLang = state.lang;
                     if (state.currency) {
                         currentCurrency = state.currency;
                         if(currentCurrency === 'HKD') document.getElementById('currHKD').checked = true;
                         else document.getElementById('currUSD').checked = true;
-                        updateCurrencyMode(); // Update header
                     }
                 } catch (e) { console.error("Load state failed", e); }
             }
         }
 
         function resetData() {
-            if(confirm("確定要重置所有設定為預設值嗎？")) {
+            if(confirm(i18n[currentLang].resetPrompt)) {
                 localStorage.removeItem('wealthicon_sim_state');
                 location.reload();
             }
@@ -360,16 +553,11 @@
 
             for (let i = 1; i <= 10; i++) {
                 if (!saved) yearlyRates[i] = baseRate;
-                
                 const div = document.createElement('div');
                 div.className = 'flex items-center gap-2';
                 div.innerHTML = `
-                    <span class="text-[10px] text-slate-500 w-8">Y${i}</span>
-                    <input type="number" 
-                        id="rate_y${i}" 
-                        value="${yearlyRates[i]}" 
-                        step="0.1" 
-                        onchange="updateSpecificRate(${i}, this.value)"
+                    <span class="yearly-rate-label text-[10px] text-slate-500 w-8">${i18n[currentLang].yLabel}${i}</span>
+                    <input type="number" id="rate_y${i}" value="${yearlyRates[i]}" step="0.1" onchange="updateSpecificRate(${i}, this.value)"
                         class="input-field w-full rounded px-2 py-1 text-xs text-right bg-slate-800 border-none focus:ring-1 focus:ring-amber-500">
                     <span class="text-[10px] text-slate-600">%</span>
                 `;
@@ -392,6 +580,7 @@
             calculate();
         });
 
+        // 展開/收起邏輯
         const toggleBtn = document.getElementById('toggleAdvanced');
         const advancedContent = document.getElementById('advancedContent');
         const arrowIcon = document.getElementById('arrowIcon');
@@ -401,23 +590,41 @@
             arrowIcon.style.transform = isActive ? 'rotate(180deg)' : 'rotate(0deg)';
         });
 
+        const toggleStressTestBtn = document.getElementById('toggleStressTest');
+        const stressTestContent = document.getElementById('stressTestContent');
+        const stressArrowIcon = document.getElementById('stressArrowIcon');
+        
+        toggleStressTestBtn.addEventListener('click', () => {
+            const isActive = stressTestContent.classList.toggle('active');
+            stressArrowIcon.style.transform = isActive ? 'rotate(180deg)' : 'rotate(0deg)';
+        });
+
+
+        // --- 核心計算邏輯 ---
         function calculate() {
             saveState();
 
-            const basicPremium = parseFloat(document.getElementById('basicPremium').value) || 0;
+            const marketRate = parseFloat(document.getElementById('exchangeRate').value) || 7.8;
+            const bankLoanRate = parseFloat(document.getElementById('bankLoanRate').value) || 7.8;
+            const basicPremiumEl = document.getElementById('basicPremium');
+            const basicPremium = basicPremiumEl ? (parseFloat(basicPremiumEl.value) || 0) : 400000;
             const day1SV = basicPremium * 0.8;
-            document.getElementById('day1SV').value = Math.round(day1SV);
+            const day1SVEl = document.getElementById('day1SV');
+            if (day1SVEl) day1SVEl.value = Math.round(day1SV);
             
             const premiumDiscount = parseFloat(document.getElementById('premiumDiscount').value) / 100 || 0;
             const ltvRatio = parseFloat(document.getElementById('ltvRatio').value) / 100 || 0;
             const fulfillment = parseFloat(document.getElementById('fulfillmentRatio').value) / 100 || 0;
 
-            const financingAmount = day1SV * ltvRatio;
-            const netPremium = basicPremium * (1 - premiumDiscount); 
-            const initialOutlayPF = netPremium - financingAmount;
-            const initialOutlayNoPF = netPremium;
+            const targetLoanUSD = day1SV * ltvRatio; 
+            const actualLoanHKD = targetLoanUSD * bankLoanRate; 
+            const effectiveLoanUSD = actualLoanHKD / marketRate;
 
-            document.getElementById('displayFinancing').innerText = formatCurrency(financingAmount);
+            const netPremiumUSD = basicPremium * (1 - premiumDiscount); 
+            const initialOutlayPF = netPremiumUSD - effectiveLoanUSD; 
+            const initialOutlayNoPF = netPremiumUSD;
+
+            document.getElementById('displayFinancing').innerText = formatCurrency(effectiveLoanUSD);
             document.getElementById('displayOutlay').innerText = formatCurrency(initialOutlayPF);
 
             const tableBody = document.getElementById('dataTableBody');
@@ -428,37 +635,36 @@
             const chartNetProfit = [];
             const chartGrossReturn = []; 
 
-            // Get rate for chart data conversion
-            const rate = getCurrencyRate();
+            const rate = getCurrencyRate(); 
+            const moText = i18n[currentLang].mo;
 
             for (let year = 0; year <= 10; year++) {
                 const currentRateVal = yearlyRates[year === 0 ? 1 : year];
-                const annualInterest = financingAmount * (currentRateVal / 100);
-                const monthlyInterest = annualInterest / 12; // 計算月利息
+                const annualInterest = effectiveLoanUSD * (currentRateVal / 100);
+                const monthlyInterest = annualInterest / 12;
 
-                let baseSV = year === 0 ? 0 : basicPremium * svRatios[year];
+                const guaranteedSV = basicPremium * guaranteedRatios[year];
+                const nonGuaranteedSV = basicPremium * nonGuaranteedRatios[year];
 
                 if (year > 0) totalInterestPaid += annualInterest;
 
-                const adjustedSV = baseSV * fulfillment;
-                const grossReturn = year === 0 ? 0 : (adjustedSV - financingAmount);
+                const adjustedSV = guaranteedSV + (nonGuaranteedSV * fulfillment);
+                const grossReturn = year === 0 ? 0 : (adjustedSV - effectiveLoanUSD);
                 const netProfit = year === 0 ? 0 : (grossReturn - initialOutlayPF - totalInterestPaid);
                 const roi = year === 0 ? 0 : (netProfit / initialOutlayPF);
                 
-                // TIRR (With PF)
                 let displayTIRR_PF = "-";
                 if (year > 0) {
                     let tempFlows = [-initialOutlayPF];
                     for (let k = 1; k < year; k++) {
                         const pastRate = yearlyRates[k] / 100;
-                        tempFlows.push(-(financingAmount * pastRate)); 
+                        tempFlows.push(-(effectiveLoanUSD * pastRate)); 
                     }
                     tempFlows.push(grossReturn - annualInterest);
                     const calculatedTIRR_PF = calculateIRR(tempFlows);
                     displayTIRR_PF = isFinite(calculatedTIRR_PF) ? formatPercent(calculatedTIRR_PF) : "-";
                 }
 
-                // TIRR (No PF)
                 let displayTIRR_NoPF = "-";
                 if (year > 0) {
                     let tirrNoPF = Math.pow(adjustedSV / initialOutlayNoPF, 1 / year) - 1;
@@ -466,9 +672,9 @@
                 }
 
                 if (year >= 0) {
-                    chartLabels.push(`Y${year}`);
-                    chartNetProfit.push(netProfit * rate); // Convert for Chart
-                    chartGrossReturn.push(grossReturn * rate); // Convert for Chart
+                    chartLabels.push(`${i18n[currentLang].yLabel}${year}`);
+                    chartNetProfit.push(netProfit * rate); 
+                    chartGrossReturn.push(grossReturn * rate); 
                 }
 
                 if (year === 10) {
@@ -479,12 +685,11 @@
                 row.className = 'border-t border-slate-800 hover:bg-slate-800/50 transition-colors';
                 if (year >= 5) row.classList.add('profit-row');
 
-                // 利息顯示 HTML (年/月)
                 let interestDisplay = '-';
                 if (year > 0) {
                     interestDisplay = `
                         <div>${formatCurrency(annualInterest)}</div>
-                        <div class="text-[11px] text-slate-500 mt-0.5">${formatCurrency(monthlyInterest)} /mo</div>
+                        <div class="text-[11px] text-slate-500 mt-0.5">${formatCurrency(monthlyInterest)} ${moText}</div>
                     `;
                 }
 
@@ -502,13 +707,85 @@
                 tableBody.appendChild(row);
             }
             updateChart(chartLabels, chartNetProfit, chartGrossReturn);
+            generateStressTestMatrix(basicPremium, effectiveLoanUSD, initialOutlayPF);
         }
 
+        // --- 壓力測試矩陣產生器 ---
+        function generateStressTestMatrix(basicPremium, effectiveLoanUSD, initialOutlayPF) {
+            const matrixContainer = document.getElementById('stressTestMatrixBody');
+            if (!matrixContainer) return;
+
+            const stressTestYearEl = document.getElementById('stressTestYear');
+            let targetYear = stressTestYearEl ? parseInt(stressTestYearEl.value) : 10;
+            if (isNaN(targetYear) || targetYear < 5) targetYear = 5;
+            if (targetYear > 10) targetYear = 10;
+
+            // 更新提示文字中的年份
+            const noteTemplate = i18n[currentLang].stressTestNote || "";
+            const noteEl = document.getElementById('stressTestNoteText');
+            if (noteEl) {
+                noteEl.innerText = noteTemplate.replace('{year}', targetYear);
+            }
+
+            const interestRates = [2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0];
+            const fulfillments = [1.0, 0.95, 0.90, 0.85, 0.80, 0.70, 0.60];
+            
+            const guaranteedSV = basicPremium * guaranteedRatios[targetYear];
+            const nonGuaranteedSV = basicPremium * nonGuaranteedRatios[targetYear];
+
+            let html = `<div class="flex gap-2 mb-3 min-w-max">
+                <div class="w-24 shrink-0 flex items-center justify-center text-[11px] text-slate-500 font-semibold text-center leading-tight">
+                    ${i18n[currentLang].fulfillmentRowLabel}
+                </div>`;
+            
+            // 表頭：利率列
+            for (let r of interestRates) {
+                html += `<div class="w-[68px] shrink-0 py-3 rounded-lg bg-slate-800 text-slate-300 text-xs font-semibold text-center border border-slate-700/50">${r.toFixed(2)}%</div>`;
+            }
+            html += `</div>`;
+
+            // 數據列：實現率
+            for (let f of fulfillments) {
+                html += `<div class="flex gap-2 mb-2 min-w-max">
+                    <div class="w-24 shrink-0 py-3 rounded-lg bg-slate-800/40 text-slate-300 text-xs font-semibold text-center flex items-center justify-center border border-slate-700/30">${(f * 100).toFixed(0)}%</div>`;
+                
+                for (let r of interestRates) {
+                    const annualInterest = effectiveLoanUSD * (r / 100);
+                    const adjustedSV = guaranteedSV + (nonGuaranteedSV * f);
+                    const grossReturn = adjustedSV - effectiveLoanUSD;
+
+                    // 目標年度 IRR 計算
+                    let tempFlows = [-initialOutlayPF];
+                    for (let k = 1; k < targetYear; k++) {
+                        tempFlows.push(-annualInterest);
+                    }
+                    tempFlows.push(grossReturn - annualInterest);
+                    
+                    const irr = calculateIRR(tempFlows);
+                    const irrPercent = irr * 100;
+                    let displayIrr = isFinite(irr) ? irrPercent.toFixed(2) + '%' : '-';
+
+                    // 色彩熱力對應 (參考您的截圖風格)
+                    let colorClass = '';
+                    if (irrPercent >= 6) colorClass = 'bg-[#8b6528] text-amber-50 shadow-inner'; // 金褐
+                    else if (irrPercent >= 5) colorClass = 'bg-[#7a5420] text-amber-100'; // 暗金褐
+                    else if (irrPercent >= 4) colorClass = 'bg-[#694318] text-orange-100'; // 棕橘
+                    else if (irrPercent >= 3) colorClass = 'bg-[#583210] text-orange-200'; // 暗棕
+                    else if (irrPercent >= 0) colorClass = 'bg-[#472108] text-red-200'; // 深紅棕
+                    else colorClass = 'bg-[#3b0918] text-red-300/80'; // 負數：暗紅
+
+                    html += `<div class="w-[68px] shrink-0 py-3 rounded-lg ${colorClass} text-xs font-medium text-center flex items-center justify-center matrix-cell">${displayIrr}</div>`;
+                }
+                html += `</div>`;
+            }
+            matrixContainer.innerHTML = html;
+        }
+
+        // --- 圖表繪製 ---
         function updateChart(labels, netProfitData, grossReturnData) {
             const ctx = document.getElementById('wealthChart').getContext('2d');
             if (wealthChart) wealthChart.destroy();
             
-            // Determine label based on currency
             const currencyLabel = currentCurrency === 'HKD' ? 'HKD' : 'USD';
 
             wealthChart = new Chart(ctx, {
@@ -517,7 +794,7 @@
                     labels: labels,
                     datasets: [
                         {
-                            label: `淨利潤 (${currencyLabel})`,
+                            label: `${i18n[currentLang].chartNetProfit} (${currencyLabel})`,
                             data: netProfitData,
                             borderColor: '#2dd4bf', 
                             backgroundColor: 'rgba(45, 212, 191, 0.1)',
@@ -527,7 +804,7 @@
                             pointRadius: 3
                         },
                         {
-                            label: `可提取金額 (${currencyLabel})`,
+                            label: `${i18n[currentLang].chartGrossReturn} (${currencyLabel})`,
                             data: grossReturnData,
                             borderColor: '#f59e0b',
                             borderWidth: 2,
@@ -569,9 +846,10 @@
             if(el) el.addEventListener('input', calculate);
         });
         
+        // 初始化程序
         loadState();
+        setLanguage(currentLang); 
         initYearlyRateInputs();
-        calculate();
     </script>
 </body>
 </html>
