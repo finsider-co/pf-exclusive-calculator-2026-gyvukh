@@ -18,18 +18,21 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* 基礎深色主題設定 */
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: #0a0c10;
             color: #e2e8f0;
             -webkit-font-smoothing: antialiased;
             padding-bottom: env(safe-area-inset-bottom);
+            transition: background-color 0.3s, color 0.3s;
         }
         .glass-card {
             background: rgba(30, 41, 59, 0.5);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 16px;
+            transition: all 0.3s;
         }
         .gold-gradient-text {
             background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
@@ -50,38 +53,71 @@
         .profit-row {
             background: rgba(45, 212, 191, 0.05);
         }
-        .highlight-text {
-            color: #2dd4bf;
-        }
-        .negative-text {
-            color: #fb7185;
-        }
+        .highlight-text { color: #2dd4bf; }
+        .negative-text { color: #fb7185; }
         .accordion-content {
             transition: max-height 0.4s ease-out;
             max-height: 0;
             overflow: hidden;
         }
-        .accordion-content.active {
-            max-height: 1200px;
-        }
+        .accordion-content.active { max-height: 1200px; }
+        
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: #0a0c10; }
         ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #334155; }
+        
         .currency-radio:checked + label {
             background-color: #b38728;
             color: white;
             border-color: #b38728;
         }
-        .matrix-cell {
-            transition: all 0.2s;
-        }
+        .matrix-cell { transition: all 0.2s; }
         .matrix-cell:hover {
             transform: scale(1.05);
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
             z-index: 10;
             position: relative;
         }
+
+        /* 專業淺色主題設定 (Day Mode) */
+        body.light-mode {
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        .light-mode .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        .light-mode .text-white { color: #1e3a8a !important; } /* 深藍色 */
+        .light-mode .text-slate-400 { color: #64748b !important; }
+        .light-mode .text-slate-300 { color: #475569 !important; }
+        .light-mode .text-slate-500 { color: #64748b !important; }
+        .light-mode .text-amber-100 { color: #b38728 !important; }
+        .light-mode .bg-slate-800 { background-color: #f1f5f9 !important; }
+        .light-mode .bg-slate-800\/50 { background-color: #f8fafc !important; }
+        .light-mode .bg-slate-800\/40 { background-color: #ffffff !important; }
+        .light-mode .bg-\[\#161b22\], .light-mode .bg-\[\#12161d\], .light-mode .bg-\[\#0f141e\] { background-color: #ffffff !important; }
+        .light-mode .border-slate-700, .light-mode .border-slate-700\/50, .light-mode .border-slate-700\/30, .light-mode .border-slate-800, .light-mode .border-slate-700\/60 { border-color: #e2e8f0 !important; }
+        .light-mode .input-field { background: #ffffff !important; border: 1px solid #cbd5e1 !important; color: #1e3a8a !important; }
+        .light-mode .input-field:focus { border-color: #b38728 !important; box-shadow: 0 0 0 2px rgba(179, 135, 40, 0.2) !important; }
+        .light-mode .input-field[readonly] { background: #f1f5f9 !important; color: #94a3b8 !important; border-color: #e2e8f0 !important; }
+        .light-mode .highlight-text, .light-mode .text-teal-400\/70, .light-mode .text-teal-500\/80 { color: #0d9488 !important; } /* 深青色 */
+        .light-mode .negative-text { color: #e11d48 !important; } /* 深紅色 */
+        .light-mode .text-amber-300 { color: #d97706 !important; }
+        .light-mode .text-amber-500 { color: #b38728 !important; }
+        .light-mode .profit-row { background: rgba(13, 148, 136, 0.05) !important; }
+        .light-mode .currency-radio:checked + label { background-color: #1e3a8a !important; color: #ffffff !important; border-color: #1e3a8a !important; }
+        .light-mode .bg-amber-500\/5 { background-color: #fffbeb !important; }
+        .light-mode .border-amber-500\/20 { border-color: #fde68a !important; }
+        .light-mode #themeToggleBtn { color: #b38728; }
+        .light-mode #themeToggleBtn:hover { background-color: #e2e8f0; }
+        .light-mode #langSwitcher { background-color: #ffffff; color: #1e3a8a; border-color: #cbd5e1; }
+        
+        .light-mode ::-webkit-scrollbar-track { background: #f8fafc; }
+        .light-mode ::-webkit-scrollbar-thumb { background: #cbd5e1; }
+        .light-mode ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
     </style>
 </head>
 <body class="p-4 md:p-8 min-h-screen">
@@ -90,15 +126,24 @@
         <header class="mb-8 flex flex-col md:flex-row justify-between items-end gap-4">
             <div>
                 <h1 class="text-3xl md:text-4xl font-bold gold-gradient-text tracking-tight mb-2" data-i18n="appTitle">Premium Financing</h1>
-                <p class="text-slate-400 text-sm" data-i18n="appSubtitle">Wealth Management & Financing Simulation Tool: Wealthicon Horizon</p>
+                <p class="text-slate-400 text-sm" data-i18n="appSubtitle">Wealth Management & Financing Simulation Tool: Wealthicon Horizon<br><span class="text-xs text-slate-500 block mt-1">Empowered by Finsider</span></p>
             </div>
             <div class="flex flex-col items-end gap-2">
-                <!-- 語言切換器 -->
-                <select id="langSwitcher" onchange="setLanguage(this.value)" class="bg-slate-800 text-xs text-slate-300 border border-slate-600 rounded px-2 py-1 outline-none mb-1">
-                    <option value="zh-TW">繁體中文</option>
-                    <option value="zh-CN">简体中文</option>
-                    <option value="en">English</option>
-                </select>
+                <div class="flex items-center gap-3 mb-1">
+                    <!-- Day/Night 主題切換按鈕 -->
+                    <button onclick="toggleTheme()" class="text-slate-400 hover:text-amber-500 transition-colors p-2 rounded-full hover:bg-slate-800" id="themeToggleBtn" title="切換 Day/Night 主題">
+                        <span id="themeIcon">
+                            <!-- 預設為太陽圖標 (切換至Day Mode) -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                        </span>
+                    </button>
+                    <!-- 語言切換器 -->
+                    <select id="langSwitcher" onchange="setLanguage(this.value)" class="bg-slate-800 text-xs text-slate-300 border border-slate-600 rounded px-2 py-1 outline-none transition-colors">
+                        <option value="zh-TW">繁體中文</option>
+                        <option value="zh-CN">简体中文</option>
+                        <option value="en">English</option>
+                    </select>
+                </div>
 
                 <div class="text-right">
                     <div class="text-xs text-slate-500 uppercase tracking-widest mb-1" data-i18n="displayCurrency">Display Currency</div>
@@ -115,7 +160,7 @@
                 <!-- 貨幣設定 -->
                 <div class="glass-card p-5 border-amber-500/20 bg-amber-500/5">
                     <h2 class="text-sm font-semibold mb-3 flex items-center gap-2 text-amber-100">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17" y1="5" x2="9.5" y2="5" stroke="none"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
                         <span data-i18n="currencyTitle">貨幣顯示設定</span>
                     </h2>
                     <div class="flex gap-2 mb-3">
@@ -165,7 +210,6 @@
                             <input type="number" id="ltvRatio" value="90" step="1" class="input-field w-full rounded-lg px-3 py-2 text-sm">
                         </div>
                         
-                        <!-- 新增：銀行借貸匯率 -->
                         <div>
                             <label class="block text-xs text-slate-400 mb-1 ml-1" data-i18n="bankLoanRate">銀行借貸匯率 (USD兌HKD)</label>
                             <input type="number" id="bankLoanRate" value="7.8" step="0.001" class="input-field w-full rounded-lg px-3 py-2 text-sm border-blue-500/30">
@@ -205,8 +249,8 @@
                         <div class="text-2xl font-bold text-white mt-1" id="displayOutlay">0</div>
                     </div>
                     <div class="glass-card p-5 border-l-4 border-teal-500 flex flex-col justify-between">
-                        <div class="text-xs text-slate-400 uppercase" data-i18n="cardYear10Profit">Year 10 Net Profit 十年淨利</div>
-                        <div class="text-2xl font-bold highlight-text mt-1" id="displayYear10Profit">0</div>
+                        <div class="text-xs text-slate-400 uppercase" data-i18n="cardLeverageRatio">Leverage Ratio 融資槓桿比率</div>
+                        <div class="text-2xl font-bold highlight-text mt-1" id="displayLeverageRatio">0.00x</div>
                     </div>
                 </div>
 
@@ -283,7 +327,7 @@
         const i18n = {
             'zh-TW': {
                 appTitle: "Premium Financing",
-                appSubtitle: "Wealth Management & Financing Simulation Tool: Wealthicon Horizon",
+                appSubtitle: "Wealth Management & Financing Simulation Tool: Wealthicon Horizon<br><span class='text-xs text-slate-500 block mt-1'>Empowered by Finsider</span>",
                 displayCurrency: "Display Currency",
                 resetBtn: "重置所有設定",
                 currNameUsd: "美元",
@@ -303,7 +347,7 @@
                 advancedSettings: "進階設定：每年利率調整",
                 cardFinancing: "Financing Amount 融資金額",
                 cardOutlay: "Initial Outlay 初始投入",
-                cardYear10Profit: "Year 10 Net Profit 十年淨利",
+                cardLeverageRatio: "Leverage Ratio 融資槓桿比率",
                 colYear: "年度",
                 colRate: "融資利率",
                 colInterest: "利息成本<br><span class='text-[10px] text-slate-500 normal-case'>(年 / 月)</span>",
@@ -326,7 +370,7 @@
             },
             'zh-CN': {
                 appTitle: "Premium Financing (保费融资)",
-                appSubtitle: "Wealth Management & Financing Simulation Tool: Wealthicon Horizon",
+                appSubtitle: "Wealth Management & Financing Simulation Tool: Wealthicon Horizon<br><span class='text-xs text-slate-500 block mt-1'>Empowered by Finsider</span>",
                 displayCurrency: "显示货币 (Currency)",
                 resetBtn: "重置所有设置",
                 currNameUsd: "美元",
@@ -346,7 +390,7 @@
                 advancedSettings: "高级设置：每年利率调整",
                 cardFinancing: "Financing Amount 融资金额",
                 cardOutlay: "Initial Outlay 初始投入",
-                cardYear10Profit: "Year 10 Net Profit 十年净利",
+                cardLeverageRatio: "Leverage Ratio 融资杠杆比率",
                 colYear: "年度",
                 colRate: "融资利率",
                 colInterest: "利息成本<br><span class='text-[10px] text-slate-500 normal-case'>(年 / 月)</span>",
@@ -369,7 +413,7 @@
             },
             'en': {
                 appTitle: "Premium Financing",
-                appSubtitle: "Wealth Management & Financing Simulation Tool: Wealthicon Horizon",
+                appSubtitle: "Wealth Management & Financing Simulation Tool: Wealthicon Horizon<br><span class='text-xs text-slate-500 block mt-1'>Empowered by Finsider</span>",
                 displayCurrency: "Display Currency",
                 resetBtn: "Reset All Settings",
                 currNameUsd: "US Dollar",
@@ -389,7 +433,7 @@
                 advancedSettings: "Advanced Settings: Yearly Rate Adjustments",
                 cardFinancing: "Financing Amount",
                 cardOutlay: "Initial Outlay",
-                cardYear10Profit: "Year 10 Net Profit",
+                cardLeverageRatio: "Leverage Ratio",
                 colYear: "Year",
                 colRate: "Fin. Rate",
                 colInterest: "Interest Cost<br><span class='text-[10px] text-slate-500 normal-case'>(Yr / Mo)</span>",
@@ -417,6 +461,7 @@
         let yearlyRates = new Array(11).fill(3.2); 
         let currentCurrency = 'USD'; 
         let currentLang = 'zh-TW';
+        let currentTheme = 'dark'; // 主題管理變數
 
         // 產品真實數據比率表 (SV / Basic Premium)
         const guaranteedRatios = [
@@ -427,6 +472,27 @@
             0, 0, 15960/570000, 83917/570000, 128064/570000, 
             216230/570000, 249237/570000, 285225/570000, 329897/570000, 403202/570000, 476643/570000
         ];
+
+        // --- 主題切換處理 (Day/Night) ---
+        function setTheme(theme) {
+            currentTheme = theme;
+            const themeIcon = document.getElementById('themeIcon');
+            if (theme === 'light') {
+                document.body.classList.add('light-mode');
+                // 月亮圖標 (代表點擊後切回暗色)
+                themeIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+            } else {
+                document.body.classList.remove('light-mode');
+                // 太陽圖標 (代表點擊後切換淺色)
+                themeIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
+            }
+            calculate(); // 重新觸發繪圖與矩陣顏色渲染
+            saveState();
+        }
+
+        function toggleTheme() {
+            setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+        }
 
         // --- 多語言處理 ---
         function setLanguage(lang) {
@@ -508,7 +574,7 @@
 
         // --- Local Storage 功能 ---
         function saveState() {
-            const state = { inputs: {}, yearlyRates: yearlyRates, currency: currentCurrency, lang: currentLang };
+            const state = { inputs: {}, yearlyRates: yearlyRates, currency: currentCurrency, lang: currentLang, theme: currentTheme };
             inputs.forEach(id => {
                 const el = document.getElementById(id);
                 if(el) state.inputs[id] = el.value;
@@ -529,6 +595,7 @@
                     }
                     if (state.yearlyRates) yearlyRates = state.yearlyRates;
                     if (state.lang) currentLang = state.lang;
+                    if (state.theme) currentTheme = state.theme;
                     if (state.currency) {
                         currentCurrency = state.currency;
                         if(currentCurrency === 'HKD') document.getElementById('currHKD').checked = true;
@@ -626,6 +693,10 @@
 
             document.getElementById('displayFinancing').innerText = formatCurrency(effectiveLoanUSD);
             document.getElementById('displayOutlay').innerText = formatCurrency(initialOutlayPF);
+            
+            // 計算並顯示融資槓桿比率 (Leverage Ratio)
+            const leverageRatio = initialOutlayPF > 0 ? (basicPremium / initialOutlayPF) : 0;
+            document.getElementById('displayLeverageRatio').innerText = leverageRatio.toFixed(2) + 'x';
 
             const tableBody = document.getElementById('dataTableBody');
             tableBody.innerHTML = '';
@@ -677,10 +748,6 @@
                     chartGrossReturn.push(grossReturn * rate); 
                 }
 
-                if (year === 10) {
-                    document.getElementById('displayYear10Profit').innerText = formatCurrency(netProfit);
-                }
-
                 const row = document.createElement('tr');
                 row.className = 'border-t border-slate-800 hover:bg-slate-800/50 transition-colors';
                 if (year >= 5) row.classList.add('profit-row');
@@ -720,7 +787,6 @@
             if (isNaN(targetYear) || targetYear < 5) targetYear = 5;
             if (targetYear > 10) targetYear = 10;
 
-            // 更新提示文字中的年份
             const noteTemplate = i18n[currentLang].stressTestNote || "";
             const noteEl = document.getElementById('stressTestNoteText');
             if (noteEl) {
@@ -732,6 +798,8 @@
             
             const guaranteedSV = basicPremium * guaranteedRatios[targetYear];
             const nonGuaranteedSV = basicPremium * nonGuaranteedRatios[targetYear];
+
+            const isLight = document.body.classList.contains('light-mode');
 
             let html = `<div class="flex gap-2 mb-3 min-w-max">
                 <div class="w-24 shrink-0 flex items-center justify-center text-[11px] text-slate-500 font-semibold text-center leading-tight">
@@ -754,7 +822,6 @@
                     const adjustedSV = guaranteedSV + (nonGuaranteedSV * f);
                     const grossReturn = adjustedSV - effectiveLoanUSD;
 
-                    // 目標年度 IRR 計算
                     let tempFlows = [-initialOutlayPF];
                     for (let k = 1; k < targetYear; k++) {
                         tempFlows.push(-annualInterest);
@@ -765,14 +832,14 @@
                     const irrPercent = irr * 100;
                     let displayIrr = isFinite(irr) ? irrPercent.toFixed(2) + '%' : '-';
 
-                    // 色彩熱力對應 (參考您的截圖風格)
+                    // 針對淺色/深色主題做熱力圖配色調整
                     let colorClass = '';
-                    if (irrPercent >= 6) colorClass = 'bg-[#8b6528] text-amber-50 shadow-inner'; // 金褐
-                    else if (irrPercent >= 5) colorClass = 'bg-[#7a5420] text-amber-100'; // 暗金褐
-                    else if (irrPercent >= 4) colorClass = 'bg-[#694318] text-orange-100'; // 棕橘
-                    else if (irrPercent >= 3) colorClass = 'bg-[#583210] text-orange-200'; // 暗棕
-                    else if (irrPercent >= 0) colorClass = 'bg-[#472108] text-red-200'; // 深紅棕
-                    else colorClass = 'bg-[#3b0918] text-red-300/80'; // 負數：暗紅
+                    if (irrPercent >= 6) colorClass = isLight ? 'bg-[#b38728] text-white shadow-inner' : 'bg-[#8b6528] text-amber-50 shadow-inner';
+                    else if (irrPercent >= 5) colorClass = isLight ? 'bg-[#cca346] text-white' : 'bg-[#7a5420] text-amber-100';
+                    else if (irrPercent >= 4) colorClass = isLight ? 'bg-[#e5c066] text-slate-900' : 'bg-[#694318] text-orange-100';
+                    else if (irrPercent >= 3) colorClass = isLight ? 'bg-[#fce599] text-slate-900' : 'bg-[#583210] text-orange-200';
+                    else if (irrPercent >= 0) colorClass = isLight ? 'bg-[#fef0c2] text-slate-900' : 'bg-[#472108] text-red-200';
+                    else colorClass = isLight ? 'bg-[#ffe4e6] text-rose-700' : 'bg-[#3b0918] text-red-300/80';
 
                     html += `<div class="w-[68px] shrink-0 py-3 rounded-lg ${colorClass} text-xs font-medium text-center flex items-center justify-center matrix-cell">${displayIrr}</div>`;
                 }
@@ -787,6 +854,17 @@
             if (wealthChart) wealthChart.destroy();
             
             const currencyLabel = currentCurrency === 'HKD' ? 'HKD' : 'USD';
+            const isLight = document.body.classList.contains('light-mode');
+            
+            // 圖表適配雙主題色彩
+            const gridColor = isLight ? 'rgba(0, 0, 0, 0.05)' : 'rgba(255, 255, 255, 0.05)';
+            const tooltipBg = isLight ? 'rgba(255, 255, 255, 0.95)' : 'rgba(15, 23, 42, 0.9)';
+            const tooltipTitleColor = isLight ? '#0f172a' : '#f1f5f9';
+            const tooltipBodyColor = isLight ? '#334155' : '#cbd5e1';
+            const tooltipBorderColor = isLight ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.1)';
+
+            const colorProfit = isLight ? '#0d9488' : '#2dd4bf'; // 深色模式偏螢光青，淺色模式偏深青色
+            const colorGross = isLight ? '#d97706' : '#f59e0b'; // 淺色模式用更深的琥珀色
 
             wealthChart = new Chart(ctx, {
                 type: 'line',
@@ -796,8 +874,8 @@
                         {
                             label: `${i18n[currentLang].chartNetProfit} (${currencyLabel})`,
                             data: netProfitData,
-                            borderColor: '#2dd4bf', 
-                            backgroundColor: 'rgba(45, 212, 191, 0.1)',
+                            borderColor: colorProfit, 
+                            backgroundColor: isLight ? 'rgba(13, 148, 136, 0.1)' : 'rgba(45, 212, 191, 0.1)',
                             borderWidth: 2,
                             tension: 0.4,
                             fill: true,
@@ -806,7 +884,7 @@
                         {
                             label: `${i18n[currentLang].chartGrossReturn} (${currencyLabel})`,
                             data: grossReturnData,
-                            borderColor: '#f59e0b',
+                            borderColor: colorGross,
                             borderWidth: 2,
                             borderDash: [5, 5],
                             tension: 0.4,
@@ -819,12 +897,12 @@
                     maintainAspectRatio: false,
                     interaction: { mode: 'index', intersect: false },
                     plugins: {
-                        legend: { labels: { color: '#94a3b8', font: { size: 11 } } },
+                        legend: { labels: { color: '#64748b', font: { size: 11 } } },
                         tooltip: {
-                            backgroundColor: 'rgba(15, 23, 42, 0.9)',
-                            titleColor: '#f1f5f9',
-                            bodyColor: '#cbd5e1',
-                            borderColor: 'rgba(255,255,255,0.1)',
+                            backgroundColor: tooltipBg,
+                            titleColor: tooltipTitleColor,
+                            bodyColor: tooltipBodyColor,
+                            borderColor: tooltipBorderColor,
                             borderWidth: 1,
                             callbacks: {
                                 label: function(context) {
@@ -834,8 +912,8 @@
                         }
                     },
                     scales: {
-                        x: { grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#64748b' } },
-                        y: { grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#64748b', callback: function(value) { return value >= 1000 || value <= -1000 ? value/1000 + 'k' : value; } } }
+                        x: { grid: { color: gridColor }, ticks: { color: '#64748b' } },
+                        y: { grid: { color: gridColor }, ticks: { color: '#64748b', callback: function(value) { return value >= 1000 || value <= -1000 ? value/1000 + 'k' : value; } } }
                     }
                 }
             });
@@ -848,6 +926,7 @@
         
         // 初始化程序
         loadState();
+        setTheme(currentTheme); // 這會觸發 calculate() 和雙主題繪製
         setLanguage(currentLang); 
         initYearlyRateInputs();
     </script>
